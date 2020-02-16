@@ -13,6 +13,7 @@ class App extends Component {
         <h2>I'm a fragment too</h2>
         <h3>We have no parent div</h3>
         <p>React.Fragment allows us to do that</p>
+        <p>I love React!</p>
       </Fragment>
 
       
