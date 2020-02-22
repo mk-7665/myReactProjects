@@ -1,19 +1,13 @@
 import React, { Component } from 'react'
 
-class UserItems extends Component {
-    // state is just a js object. A place to keep data for a component at any given point.
-    // you don't have to call a constructor. You can directly declare the state object.
-    state = {
-        id: 'id',
-        login: 'mojombo',
-        avatar_url: 'https://avatars0.githubusercontent.com/u/1?v=4',
-        html_url: 'https://github.com/mojombo',
-    }
+class UserItem extends Component {
+    // adding state here will override props. Don't do it unless you know what you're doing.
 
     // you can add inline styles to jsx, with {{ }}. But it's not reccommended.
     render() {
-        // pulling stuff out from the this.state object
-        const { login, avatar_url, html_url } = this.state;
+        // pulling stuff out from the this.props.user object, inherited from parent, Users
+        // style and render each user from this.props
+        const { login, avatar_url, html_url } = this.props.user;
         return (
             <div className="card text-center">
                 <img 
@@ -34,4 +28,4 @@ class UserItems extends Component {
     }
 }
 
-export default UserItems
+export default UserItem
