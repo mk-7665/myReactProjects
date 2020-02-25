@@ -1,33 +1,32 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
+// destructuring from a props object, defaultProps (defined below). Pulling out icon and title.
 
-// This is a react component 
-export class Navbar extends Component {
-    // you can set default props as an object. They will render if parent component didn't pass anything.
-    static defaultProps = {
-        title: "GitHub Search",
-        icon: "fab fa-github"
-    };
-
-    // PropTypes defines the data type of props. If the wrong data type is passed in, an error message will show up in console
-    static propTypes = {
-        title: PropTypes.string.isRequired,
-        icon: PropTypes.string.isRequired
-    }
-
-    render() {
+const Navbar =({icon, title }) => {
+// reminder: like regular js, you don't need "this" when inside a function.
         return (
             <nav className="navbar bg-primary">
                 <h1>
-                    {/* to access props from the parent, use this.props, then the property name.
+                    {/* props passed in from parent.
                     you can pass css classes as props instead of writing out the class. 
                     It's good practice because css classes can change. */}
-                    <i className={this.props.icon} /> {this.props.title}
+                    <i className={icon} /> {title}
                 </h1>
             </nav>
         )
-    }
+}
+
+// you can set default props as an object. They will render if parent component didn't pass anything.
+Navbar.defaultProps = {
+    title: "GitHub Search",
+    icon: "fab fa-github"
+};
+
+// PropTypes defines the data type of props. If the wrong data type is passed in, an error message will show up in console
+Navbar.propTypes = {
+    title: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired
 }
 
 export default Navbar
