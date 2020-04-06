@@ -14,10 +14,12 @@ class App extends Component {
   }
   // lifecycle method
   async componentDidMount() {
+    //console.log(process.env.REACT_APP_GITHUB_CLIENT_SECRET); - checking API key
     this.setState({ loading: true });
     //res houses the response object from the get response
     //the data is contained in res.data
-    const res = await axios.get('https://api.github.com/users');
+    const res = await axios.get(`https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}
+    &client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
     console.log(res.data);
     //setting users to the loaded data
     this.setState({users: res.data, loading: false});
